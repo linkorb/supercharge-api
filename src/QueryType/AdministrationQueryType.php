@@ -84,6 +84,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+                    'vat' => [
+                        'type' => Type::listOf($types->get(VatQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of VAT',
+                    ],
                 ];
             },
         ];
