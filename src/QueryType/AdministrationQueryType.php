@@ -84,6 +84,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+                    'paymentMethods' => [
+                        'type' => Type::listOf($types->get(PaymentMethodQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Payment Method',
+                    ],
                 ];
             },
         ];
