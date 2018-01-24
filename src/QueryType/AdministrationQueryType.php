@@ -54,6 +54,18 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'type' => Type::string(),
                         'description' => 'Strip Sync Type',
                     ],
+
+                    'ledgerCategories' => [
+                        'type' => Type::listOf($types->get(LedgerCategoryQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Ledger Category',
+                    ],
+                    'ledgerAccounts' => [
+                        'type' => Type::listOf($types->get(LedgerAccountQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Ledger Account',
                     'contacts' => [
                         'type' => Type::listOf($types->get(ContactQueryType::class)),
                         'alias' => 'id',
