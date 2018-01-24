@@ -7,32 +7,34 @@ use GraphQL\Type\Definition\Type;
 use Graphael\TypeRegistry;
 use PDO;
 
-class LedgerAccountQueryType extends AbstractPdoObjectType
+class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
 {
     public function __construct(PDO $pdo, TypeRegistry $types)
     {
         $config = [
-            'name' => 'LedgerAccount',
+            'name' => 'TurnoverGroupAccount',
             'fields' => function () use ($types) {
                 return [
-                    'code' => [
-                        'type' => Type::string(),
-                        'description' => 'Ledger Account Code',
+                    'turnoverGroup' => [
+                        'type' => $types->get(TurnoverGroupQueryType::class),
+                        'alias' => 'turnoverGroupId',
+                        'link' => 'getById',
+                        'description' => 'Turnover Group',
                     ],
-                    'name' => [
+                    'value' => [
                         'type' => Type::string(),
-                        'description' => 'Name',
+                        'description' => 'Value',
                     ],
                     'createdAt' => [
                         'type' => Type::string(),
                         'convert' => 'dateTimeToIsoDateTime',
                         'description' => 'Created at',
                     ],
-                    'category' => [
-                        'type' => $types->get(LedgerCategoryQueryType::class),
-                        'alias' => 'ledgerCategoryId',
+                    'ledgerAccount' => [
+                        'type' => $types->get(LedgerAccountQueryType::class),
+                        'alias' => 'ledgerAccountId',
                         'link' => 'getById',
-                        'description' => 'Category',
+                        'description' => 'Turnover Group',
                     ],
                 ];
             },
@@ -41,7 +43,7 @@ class LedgerAccountQueryType extends AbstractPdoObjectType
         parent::__construct($pdo, $config);
     }
 
-    protected $tableName = 'ledger_account';
+    protected $tableName = 'turnover_group_account';
 
     public function getById($id)
     {

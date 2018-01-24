@@ -54,12 +54,18 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'type' => Type::string(),
                         'description' => 'Strip Sync Type',
                     ],
-
-                    'TurnoverGroups' => [
+                    'turnoverGroups' => [
                         'type' => Type::listOf($types->get(TurnoverGroupQueryType::class)),
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Turnover Group',
+                    ],
+                    'turnoverGroupAccounts' => [
+                        'type' => Type::listOf($types->get(TurnoverGroupAccountQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Turnover Group Account',
+                    ],
                     'ledgerCategories' => [
                         'type' => Type::listOf($types->get(LedgerCategoryQueryType::class)),
                         'alias' => 'id',
@@ -71,6 +77,7 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Ledger Account',
+                    ],
                     'contacts' => [
                         'type' => Type::listOf($types->get(ContactQueryType::class)),
                         'alias' => 'id',

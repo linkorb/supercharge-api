@@ -39,6 +39,11 @@ class TurnoverGroupQueryType extends AbstractPdoObjectType
 
     protected $tableName = 'turnover_group';
 
+    public function getById($id)
+    {
+        return $this->getBy('id', $id);
+    }
+
     public function getAllByAdministrationId($administrationId)
     {
         $data = $this->getAllBy('administration_id', $administrationId);
