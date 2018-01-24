@@ -84,6 +84,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+                    'subscriptionPlan' => [
+                        'type' => Type::listOf($types->get(SubscriptionPlanQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Subscription Plan',
+                    ],
                 ];
             },
         ];
