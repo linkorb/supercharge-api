@@ -15,45 +15,51 @@ class AdministrationQueryType extends AbstractPdoObjectType
             'name' => 'Administration',
             'fields' => function () use ($types) {
                 return [
-                'name' => [
-                    'type' => Type::string(),
-                    'description' => 'Administration Name',
-                ],
-                'accountName' => [
-                    'type' => Type::string(),
-                    'description' => 'Account Name',
-                ],
-                'currency' => [
-                    'type' => $types->get(CurrencyQueryType::class),
-                    'alias' => 'currencyId',
-                    'link' => 'getById',
-                    'description' => 'Currency',
-                ],
-                'description' => [
-                    'type' => type::string(),
-                    'description' => 'Description',
-                    'resolve' => function ($value) {
-                        return nl2br($value['description']);
-                    },
-                ],
-                'createdAt' => [
-                    'type' => Type::string(),
-                    'convert' => 'dateTimeToIsoDateTime',
-                    'description' => 'Created at',
-                ],
-                'deletedAt' => [
-                    'type' => Type::string(),
-                    'convert' => 'dateTimeToIsoDateTime',
-                    'description' => 'Deleted at',
-                ],
-                'stripeKey' => [
-                    'type' => Type::string(),
-                    'description' => 'Strip Key',
-                ],
-                'stripeSyncType' => [
-                    'type' => Type::string(),
-                    'description' => 'Strip Sync Type',
-                ],
+                    'name' => [
+                        'type' => Type::string(),
+                        'description' => 'Administration Name',
+                    ],
+                    'accountName' => [
+                        'type' => Type::string(),
+                        'description' => 'Account Name',
+                    ],
+                    'currency' => [
+                        'type' => $types->get(CurrencyQueryType::class),
+                        'alias' => 'currencyId',
+                        'link' => 'getById',
+                        'description' => 'Currency',
+                    ],
+                    'description' => [
+                        'type' => type::string(),
+                        'description' => 'Description',
+                        'resolve' => function ($value) {
+                            return nl2br($value['description']);
+                        },
+                    ],
+                    'createdAt' => [
+                        'type' => Type::string(),
+                        'convert' => 'dateTimeToIsoDateTime',
+                        'description' => 'Created at',
+                    ],
+                    'deletedAt' => [
+                        'type' => Type::string(),
+                        'convert' => 'dateTimeToIsoDateTime',
+                        'description' => 'Deleted at',
+                    ],
+                    'stripeKey' => [
+                        'type' => Type::string(),
+                        'description' => 'Strip Key',
+                    ],
+                    'stripeSyncType' => [
+                        'type' => Type::string(),
+                        'description' => 'Strip Sync Type',
+                    ],
+                    'contacts' => [
+                        'type' => Type::listOf($types->get(ContactQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of contact',
+                    ],
                 ];
             },
         ];
@@ -61,4 +67,9 @@ class AdministrationQueryType extends AbstractPdoObjectType
     }
 
     protected $tableName = 'administration';
+
+    public function getByName($name)
+    {
+        return $this->getBy('name', $name);
+    }
 }
