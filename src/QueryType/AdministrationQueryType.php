@@ -55,6 +55,11 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'description' => 'Strip Sync Type',
                     ],
 
+                    'TurnoverGroups' => [
+                        'type' => Type::listOf($types->get(TurnoverGroupQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Turnover Group',
                     'ledgerCategories' => [
                         'type' => Type::listOf($types->get(LedgerCategoryQueryType::class)),
                         'alias' => 'id',
