@@ -84,6 +84,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+                    'journals' => [
+                        'type' => Type::listOf($types->get(JournalQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Journal',
+                    ],
                 ];
             },
         ];
