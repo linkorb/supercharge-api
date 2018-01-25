@@ -53,4 +53,9 @@ class VatQueryType extends AbstractPdoObjectType
 
         return $data;
     }
+
+    public function getById($id)
+    {
+        return $this->getBy('id', $id);
+    }
 }

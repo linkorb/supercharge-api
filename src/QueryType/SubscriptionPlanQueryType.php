@@ -65,12 +65,12 @@ class SubscriptionPlanQueryType extends AbstractPdoObjectType
                         'link' => 'getById',
                         'description' => 'Turnover Group',
                     ],
-                    // 'vat' => [
-                    //     'type' => $types->get(VatQueryType::class),
-                    //     'alias' => 'VatId',
-                    //     'link' => 'getById',
-                    //     'description' => 'VAT',
-                    // ],
+                    'vat' => [
+                        'type' => $types->get(VatQueryType::class),
+                        'alias' => 'vatId',
+                        'link' => 'getById',
+                        'description' => 'VAT',
+                    ],
                 ];
             },
         ];
@@ -85,5 +85,10 @@ class SubscriptionPlanQueryType extends AbstractPdoObjectType
         $data = $this->getAllBy('administration_id', $administrationId);
 
         return $data;
+    }
+
+    public function getById($id)
+    {
+        return $this->getBy('id', $id);
     }
 }

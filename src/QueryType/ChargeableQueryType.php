@@ -40,12 +40,12 @@ class ChargeableQueryType extends AbstractPdoObjectType
                         'link' => 'getById',
                         'description' => 'Turnover Group',
                     ],
-                    // 'vat' => [
-                    //     'type' => $types->get(VatQueryType::class),
-                    //     'alias' => 'VatId',
-                    //     'link' => 'getById',
-                    //     'description' => 'VAT',
-                    // ],
+                    'vat' => [
+                        'type' => $types->get(VatQueryType::class),
+                        'alias' => 'vatId',
+                        'link' => 'getById',
+                        'description' => 'VAT',
+                    ],
                 ];
             },
         ];
