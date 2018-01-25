@@ -133,6 +133,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Invoice',
                     ],
+                    'transactions' => [
+                        'type' => Type::listOf($types->get(TransactionQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Trnasactions',
+                    ],
                 ];
             },
         ];
