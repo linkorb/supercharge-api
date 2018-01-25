@@ -66,7 +66,7 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Turnover Group Account',
                     ],
-                    'ledgerCategories' => [
+                        'ledgerCategories' => [
                         'type' => Type::listOf($types->get(LedgerCategoryQueryType::class)),
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
@@ -78,7 +78,7 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Ledger Account',
                     ],
-                    'contacts' => [
+                        'contacts' => [
                         'type' => Type::listOf($types->get(ContactQueryType::class)),
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
@@ -120,6 +120,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Batch',
+                    ],
+                    'subscriptions' => [
+                        'type' => Type::listOf($types->get(SubscriptionQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Subscriptions',
                     ],
                     'invoices' => [
                         'type' => Type::listOf($types->get(InvoiceQueryType::class)),
