@@ -7,23 +7,21 @@ use GraphQL\Type\Definition\Type;
 use Graphael\TypeRegistry;
 use PDO;
 
-class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
+class JournalQueryType extends AbstractPdoObjectType
 {
     public function __construct(PDO $pdo, TypeRegistry $types)
     {
         $config = [
-            'name' => 'TurnoverGroupAccount',
+            'name' => 'Journal',
             'fields' => function () use ($types) {
                 return [
-                    'turnoverGroup' => [
-                        'type' => $types->get(TurnoverGroupQueryType::class),
-                        'alias' => 'turnoverGroupId',
-                        'link' => 'getById',
-                        'description' => 'Turnover Group',
-                    ],
-                    'value' => [
+                    'code' => [
                         'type' => Type::string(),
-                        'description' => 'Value',
+                        'description' => 'Journal Code',
+                    ],
+                    'name' => [
+                        'type' => Type::string(),
+                        'description' => 'Journal Name',
                     ],
                     'createdAt' => [
                         'type' => Type::string(),
@@ -34,7 +32,7 @@ class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
                         'type' => $types->get(LedgerAccountQueryType::class),
                         'alias' => 'ledgerAccountId',
                         'link' => 'getById',
-                        'description' => 'Ledger Account',
+                        'description' => 'Turnover Group',
                     ],
                 ];
             },
@@ -43,12 +41,7 @@ class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
         parent::__construct($pdo, $config);
     }
 
-    protected $tableName = 'turnover_group_account';
-
-    public function getById($id)
-    {
-        return $this->getBy('id', $id);
-    }
+    protected $tableName = 'journal';
 
     public function getAllByAdministrationId($administrationId)
     {
