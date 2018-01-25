@@ -23,14 +23,14 @@ class RootQueryType extends ObjectType
                         return  $args['message'].', ';
                     },
                 ],
-                'Administrations' => [
+                'administrations' => [
                     'type' => Type::listOf($administrationQueryType),
                     'description' => 'Returns list of Administration',
                     'resolve' => function ($root, $args) use ($administrationQueryType) {
                         return $administrationQueryType->getAll();
                     },
                 ],
-                'Administration' => [
+                'administration' => [
                     'type' => $administrationQueryType,
                     'description' => 'Returns administration by name',
                     'args' => [
@@ -46,7 +46,7 @@ class RootQueryType extends ObjectType
                         return [];
                     },
                 ],
-                'Currency' => [
+                'currency' => [
                     'type' => Type::listOf($currencyQueryType),
                     'description' => 'Returns list of Currency',
                     'resolve' => function ($root, $args) use ($currencyQueryType) {

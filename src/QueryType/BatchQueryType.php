@@ -7,34 +7,28 @@ use GraphQL\Type\Definition\Type;
 use Graphael\TypeRegistry;
 use PDO;
 
-class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
+class BatchQueryType extends AbstractPdoObjectType
 {
     public function __construct(PDO $pdo, TypeRegistry $types)
     {
         $config = [
-            'name' => 'TurnoverGroupAccount',
+            'name' => 'Batch',
             'fields' => function () use ($types) {
                 return [
-                    'turnoverGroup' => [
-                        'type' => $types->get(TurnoverGroupQueryType::class),
-                        'alias' => 'turnoverGroupId',
-                        'link' => 'getById',
-                        'description' => 'Turnover Group',
-                    ],
-                    'value' => [
+                    'xuid' => [
                         'type' => Type::string(),
-                        'description' => 'Value',
+                        'description' => 'Xuid',
                     ],
                     'createdAt' => [
                         'type' => Type::string(),
                         'convert' => 'dateTimeToIsoDateTime',
                         'description' => 'Created at',
                     ],
-                    'ledgerAccount' => [
-                        'type' => $types->get(LedgerAccountQueryType::class),
-                        'alias' => 'ledgerAccountId',
+                    'contact' => [
+                        'type' => $types->get(ContactQueryType::class),
+                        'alias' => 'contactId',
                         'link' => 'getById',
-                        'description' => 'Ledger Account',
+                        'description' => 'Batch contact detail',
                     ],
                 ];
             },
@@ -43,12 +37,7 @@ class TurnoverGroupAccountQueryType extends AbstractPdoObjectType
         parent::__construct($pdo, $config);
     }
 
-    protected $tableName = 'turnover_group_account';
-
-    public function getById($id)
-    {
-        return $this->getBy('id', $id);
-    }
+    protected $tableName = 'batch';
 
     public function getAllByAdministrationId($administrationId)
     {
