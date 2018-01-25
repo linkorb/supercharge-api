@@ -84,11 +84,30 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+
                     'vat' => [
                         'type' => Type::listOf($types->get(VatQueryType::class)),
                         'alias' => 'id',
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of VAT',
+                    ],
+                    'chargeable' => [
+                        'type' => Type::listOf($types->get(ChargeableQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Chargeable',
+                    ],
+                    'subscriptionPlan' => [
+                        'type' => Type::listOf($types->get(SubscriptionPlanQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Subscription Plan',
+                    ],  
+                    'batchs' => [
+                        'type' => Type::listOf($types->get(BatchQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Batch',
                     ],
                 ];
             },
