@@ -127,6 +127,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of Subscriptions',
                     ],
+                    'invoices' => [
+                        'type' => Type::listOf($types->get(InvoiceQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Invoice',
+                    ],
                 ];
             },
         ];
