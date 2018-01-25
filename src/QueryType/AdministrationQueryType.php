@@ -84,6 +84,12 @@ class AdministrationQueryType extends AbstractPdoObjectType
                         'list' => 'getAllByAdministrationId',
                         'description' => 'Returns list of contact',
                     ],
+                    'batchs' => [
+                        'type' => Type::listOf($types->get(BatchQueryType::class)),
+                        'alias' => 'id',
+                        'list' => 'getAllByAdministrationId',
+                        'description' => 'Returns list of Batch',
+                    ],
                 ];
             },
         ];
