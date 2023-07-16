@@ -1,27 +1,27 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "832617d890c1ae1ac35b284b5cd7df85",
     "content-hash": "0ce07c52bcac0f3f80d2c3e3ef7fbe2c",
     "packages": [
         {
             "name": "erusev/parsedown",
-            "version": "1.6.4",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548"
+                "reference": "d60bcdc46978357759ecb13cb4b078da783f8faf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/fbe3fe878f4fe69048bb8a52783a09802004f548",
-                "reference": "fbe3fe878f4fe69048bb8a52783a09802004f548",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/d60bcdc46978357759ecb13cb4b078da783f8faf",
+                "reference": "d60bcdc46978357759ecb13cb4b078da783f8faf",
                 "shasum": ""
             },
             "require": {
+                "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -50,7 +50,11 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-11-14 20:44:03"
+            "support": {
+                "issues": "https://github.com/erusev/parsedown/issues",
+                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
+            },
+            "time": "2019-03-17T17:19:46+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -96,7 +100,7 @@
             ],
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
-            "time": "2017-06-27 22:17:23"
+            "time": "2017-06-27T22:17:23+00:00"
         },
         {
             "name": "linkorb/connector",
@@ -140,7 +144,7 @@
                 "pdo",
                 "php"
             ],
-            "time": "2017-02-08 14:06:32"
+            "time": "2017-02-08T14:06:32+00:00"
         },
         {
             "name": "linkorb/graphael",
@@ -188,7 +192,7 @@
                 "graphql",
                 "linkorb"
             ],
-            "time": "2017-11-27 18:53:15"
+            "time": "2017-11-27T18:53:15+00:00"
         },
         {
             "name": "psr/container",
@@ -237,7 +241,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14 16:28:37"
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -308,7 +312,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-04 15:56:45"
+            "time": "2018-01-04T15:56:45+00:00"
         },
         {
             "name": "symfony/dotenv",
@@ -365,7 +369,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-01-03 17:14:19"
+            "time": "2018-01-03T17:14:19+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -419,7 +423,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2018-01-03 07:37:34"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "webonyx/graphql-php",
@@ -466,7 +470,7 @@
                 "api",
                 "graphql"
             ],
-            "time": "2017-12-12 09:03:21"
+            "time": "2017-12-12T09:03:21+00:00"
         }
     ],
     "packages-dev": [
@@ -514,7 +518,7 @@
                 "packagist",
                 "tune"
             ],
-            "time": "2016-02-01 12:45:07"
+            "time": "2016-02-01T12:45:07+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -565,7 +569,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-12-19 21:44:46"
+            "time": "2017-12-19T21:44:46+00:00"
         }
     ],
     "aliases": [],
@@ -576,5 +580,6 @@
     "platform": {
         "php": ">=5.3.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
